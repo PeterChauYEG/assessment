@@ -54,3 +54,83 @@ It also supports JWTs and Sessions so there is alot of flexbility.
 
 #### Jest
 Jest is a standard for testing in JavaScript. It is modern and provides all the tooling your might want for unit and integration testing. It also has a lot of community support and is easy to use. It allows developers to write tests in a human readable way. 
+
+
+### Going to productions
+
+There are various changes I would make before going to production
+
+#### Testing
+
+Currently, I'm only testing the 'happy path'. The tests need cover the error cases, unauthorized cases, and edge cases. Additionally, I'd add a stub creator to make it easier to create test data. Seeding the test DB would be helpful for ensuring APIs work together. With such a small project, I would want to get my test coverage towards 100%.
+
+#### Validation
+
+Currently, I'm ensuring the API inputs are of the expected types. Aside from the auth endpoints, I'm not ensuring the inputs are within certain bounds. For example, the contents of a note should not be unlimited. I would use class-validators to enforce these constraints.
+
+#### Logging, crash reporting, and monitoring
+
+Currently, I'm logging to the console. I would want a tool like sentry to capture errors and log them to a service. I would also want to log to a service like datadog to capture metrics and monitor the health of the application.
+
+#### Dockerization
+
+I'm using docker compose to stand up the DB. I would want to dockerize the application as well. This would make it easier to deploy to a cloud provider. I would also want to use a managed DB service, such as AWS RDS.
+
+#### CI/CD
+
+I would want to set up a CI/CD pipeline to automatically run tests and deploy the application. I would want to use a service like CircleCI or Github Actions to do this.
+
+#### Security
+
+I'm not enforcing SSL. Typically I run APIs in a container and enforce it at a higher level. Important environment secrets need to be injected as well, such as the JWT secret. Cors is also important. I'd need to determine who is using the API and set the rules accordingly. The JWT does not expire, and I am ignoring Stytch's JWTs. This is purely out of convenience. In a production application, the client should be refreshing their tokens to ensure they are not expired.
+
+#### Documentation
+
+I would ensure the documentation is hosted and password protected. I would also ensure the error codes are documented. Currently, only the happy path is documented.
+
+#### Search
+
+I would integrate Algolia to provide full text search. This would make it easy to search for notes. This would require sending data to the service and calling it to search for data.
+
+#### Caching
+
+Nestjs provides caching with a number of different providers. I would want to cache the results of the search endpoint. This would require setting up a cache provider and configuring the endpoint to use it. Caching any GET calls would be helpful as well. Invalidating the cache when data is updated would be important as well. Of course, this cache would need to consider the user authorization.
+
+#### Storage
+
+The notes for this API are small, thus we are using a SQL db. If notes grew in size, it would make sense to store them in a blob storage service, such as S3. This would require a migration to move the data and a change to the API to store the data in the blob storage service. The notes table would become a reference to the blob storage service.
+
+#### Versioning
+
+As releases are deployed, the signature of endpoints change. Depending on the clients, there may be many versions of the API in use. I would want to version the API to ensure clients are using the correct version. This would require a change to the API to support versioning. I would also want to ensure the documentation is versioned as well.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
