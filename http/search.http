@@ -1,0 +1,3 @@
+GET http://localhost:3001/api/search?q=ed
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyOTliYTg4MC01MjVkLTRjMTgtOGE2Ny1mYmVjMzBlN2RkMDkiLCJpYXQiOjE2ODM4NDUzMzd9.pd7UlTLB-JiWbfqUvRCrYz7GogQUNAEziziSEm3ANqQ

@@ -1,0 +1,52 @@
+GET http://localhost:3001/api/notes
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxYjQ0NzM2Zi1hM2Q2LTQ3NmUtYTE5NS1hY2NhMTkxZTk1MDciLCJpYXQiOjE2ODQzNDI1MjF9.HMPeaMhu8lq0oO35VTMTCuznmxb0mufbwQflg3csIo0
+
+
+###
+
+GET http://localhost:3001/api/notes/b1e5b555-09fe-4d7a-b34a-775d29a5439a
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxYjQ0NzM2Zi1hM2Q2LTQ3NmUtYTE5NS1hY2NhMTkxZTk1MDciLCJpYXQiOjE2ODQzNDI1MjF9.HMPeaMhu8lq0oO35VTMTCuznmxb0mufbwQflg3csIo0
+
+###
+
+GET http://localhost:3001/api/notes/71ec5067-fc07-4ff9-8812-51a90d492f81
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxYjQ0NzM2Zi1hM2Q2LTQ3NmUtYTE5NS1hY2NhMTkxZTk1MDciLCJpYXQiOjE2ODQzNDI1MjF9.HMPeaMhu8lq0oO35VTMTCuznmxb0mufbwQflg3csIo0
+
+###
+
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxYjQ0NzM2Zi1hM2Q2LTQ3NmUtYTE5NS1hY2NhMTkxZTk1MDciLCJpYXQiOjE2ODQzNDI1MjF9.HMPeaMhu8lq0oO35VTMTCuznmxb0mufbwQflg3csIo0
+
+{
+  "content": "This is a new note"
+}
+
+###
+
+PUT http://localhost:3001/api/notes/4a1d6231-7da5-4b5e-a257-afb5cd693a20
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyOTliYTg4MC01MjVkLTRjMTgtOGE2Ny1mYmVjMzBlN2RkMDkiLCJpYXQiOjE2ODM4NDUzMzd9.pd7UlTLB-JiWbfqUvRCrYz7GogQUNAEziziSEm3ANqQ
+
+{
+  "content": "This is a edited note"
+}
+
+###
+
+DELETE http://localhost:3001/api/notes/4a1d6231-7da5-4b5e-a257-afb5cd693a20
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyOTliYTg4MC01MjVkLTRjMTgtOGE2Ny1mYmVjMzBlN2RkMDkiLCJpYXQiOjE2ODM4NDUzMzd9.pd7UlTLB-JiWbfqUvRCrYz7GogQUNAEziziSEm3ANqQ
+
+###
+
+POST http://localhost:3001/api/notes/b1e5b555-09fe-4d7a-b34a-775d29a5439a/share
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyOTliYTg4MC01MjVkLTRjMTgtOGE2Ny1mYmVjMzBlN2RkMDkiLCJpYXQiOjE2ODM4NDUzMzd9.pd7UlTLB-JiWbfqUvRCrYz7GogQUNAEziziSEm3ANqQ
+
+{
+  "sharedUserId": "650c3f06-7b01-4309-81c1-87e560a0f2ed"
+}

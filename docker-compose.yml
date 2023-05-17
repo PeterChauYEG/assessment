@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:12
+    restart: always
+    networks:
+      - micronet
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+networks:
+  micronet:
+volumes:
+  pgdata:
+  pgdata-cms:
